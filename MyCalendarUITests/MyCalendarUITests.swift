@@ -2,7 +2,7 @@
 //  MyCalendarUITests.swift
 //  MyCalendarUITests
 //
-//  Created by Татьяна Мальчик on 09.02.2022.
+//  Created by Татьяна Мальчик on 13.02.2022.
 //
 
 import XCTest
@@ -15,6 +15,9 @@ class MyCalendarUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
+        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        XCUIApplication().launch()
+
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
@@ -23,20 +26,10 @@ class MyCalendarUITests: XCTestCase {
     }
 
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
+        XCUIApplication().navigationBars["My Activity"].buttons["Add"].tap()
+                        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
 }
